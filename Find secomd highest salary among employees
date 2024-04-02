@@ -1,1 +1,19 @@
-select * from employees;
+This can be done in two ways.
+
+
+select max(sal) from emp
+where sal<(select max(sal) from emp);
+
+Explanation:
+The query retrieves the second-highest salary from the emp table. 
+It first identifies the highest salary with a subquery, then the main query finds the maximum salary that is less than this highest salary, 
+effectively returning the second-highest salary.
+
+
+The other way:
+
+select max(sal) from emp
+where sal not in (select max(sal) from emp);
+
+The query fetches the highest salary from the emp table, excluding the overall highest salary, 
+effectively aiming to find the second highest salary by excluding the topmost salary using a subquery.
