@@ -1,0 +1,4 @@
+SELECT students.student_id, COUNT(examinations.subject_name) AS attended_exams
+FROM students
+JOIN examinations ON students.student_id = examinations.student_id
+GROUP BY students.student_id;
